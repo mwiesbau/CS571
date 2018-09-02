@@ -50,6 +50,7 @@
 #include <test.h>
 #include <version.h>
 #include "autoconf.h"  // for pseudoconfig
+#include "hello.h"     // FROM ASSIGNMENT 2
 
 
 /*
@@ -104,6 +105,7 @@ boot(void)
 	kprintf("Mathias Wiesbauer's system version %s (%s #%d)\n",
 		GROUP_VERSION, buildconfig, buildversion);
 	kprintf("\n");
+	hello();
 
 	/* Early initialization. */
 	ram_bootstrap();
