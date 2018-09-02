@@ -11,5 +11,5 @@ void hello() {
 
     char text[] = "Hello World\n";
     kprintf(text);
-
 }
+
