@@ -257,6 +257,24 @@ cmd_panic(int nargs, char **args)
 	return 0;
 }
 
+
+/* Command to enable kernel debuging.
+ *
+ */
+static
+int
+cmd_dth(int nargs, char **args) {
+
+	(void)nargs;
+	(void)args;
+
+	// ONLY ENABLE DB_THREADS IF NOT YET SET
+	dbflags = DB_THREADS | dbflags
+	}
+
+	return 0;
+}
+
 /*
  * Command for shutting down.
  */
@@ -448,6 +466,7 @@ static const char *opsmenu[] = {
 	"[pwd]     Print current directory   ",
 	"[sync]    Sync filesystems          ",
 	"[panic]   Intentional panic         ",
+	"[dth]     Enable Kernel Debug output",
 	"[q]       Quit and shut down        ",
 	NULL
 };
@@ -556,6 +575,7 @@ static struct {
 	{ "pwd",	cmd_pwd },
 	{ "sync",	cmd_sync },
 	{ "panic",	cmd_panic },
+    { "dth",	cmd_dth },
 	{ "q",		cmd_quit },
 	{ "exit",	cmd_quit },
 	{ "halt",	cmd_quit },
