@@ -270,7 +270,6 @@ cmd_dth(int nargs, char **args) {
 
 	// ONLY ENABLE DB_THREADS IF NOT YET SET
 	dbflags = DB_THREADS | dbflags;
-	}
 
 	return 0;
 }
