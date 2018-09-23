@@ -56,7 +56,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="1784" />
+          <entry key="c" value="1813" />
           <entry key="h" value="271" />
           <entry key="kern" value="22" />
           <entry key="txt" value="103" />
@@ -64,7 +64,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="2055" />
+          <entry key="ObjectiveC" value="2084" />
           <entry key="PLAIN_TEXT" value="125" />
         </counts>
       </usages-collector>
@@ -95,8 +95,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/kern/include/synch.h">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="329">
-                      <caret line="142" column="5" selection-start-line="142" selection-start-column="5" selection-end-line="142" selection-end-column="5" />
+                    <state relative-caret-position="109">
+                      <caret line="137" column="33" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
                     </state>
                   </provider>
                 </entry>
@@ -110,8 +110,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/kern/thread/synch.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="421">
-                  <caret line="289" column="42" selection-start-line="289" selection-start-column="42" selection-end-line="289" selection-end-column="42" />
+                <state relative-caret-position="328">
+                  <caret line="299" column="34" selection-start-line="299" selection-start-column="34" selection-end-line="299" selection-end-column="34" />
                   <folding>
                     <element signature="e#1710#1728#0" expanded="true" />
                   </folding>
@@ -193,8 +193,8 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="4175" />
-    <option name="y" value="105" />
+    <option name="x" value="2007" />
+    <option name="y" value="78" />
     <option name="width" value="1717" />
     <option name="height" value="947" />
   </component>
@@ -303,7 +303,7 @@
       <workItem from="1536780714245" duration="23000" />
       <workItem from="1537037922960" duration="2989000" />
       <workItem from="1537319289971" duration="2692000" />
-      <workItem from="1537576321597" duration="24883000" />
+      <workItem from="1537576321597" duration="25072000" />
     </task>
     <task id="LOCAL-00001" summary="Enabled debug output through menu">
       <created>1535910680697</created>
@@ -358,10 +358,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49097000" />
+    <option name="totallyTimeSpent" value="49286000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4175" y="105" width="1717" height="947" extended-state="0" />
+    <frame x="2007" y="78" width="1717" height="947" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6422535" visible="true" weight="0.18013166" />
       <window_info id="Structure" order="1" sideWeight="0.35774648" side_tool="true" weight="0.18409818" />
@@ -671,13 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kern/include/synch.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="142" column="5" selection-start-line="142" selection-start-column="5" selection-end-line="142" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kern/thread/thread.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -685,10 +679,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/kern/include/synch.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="137" column="33" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kern/thread/synch.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="289" column="42" selection-start-line="289" selection-start-column="42" selection-end-line="289" selection-end-column="42" />
+        <state relative-caret-position="328">
+          <caret line="299" column="34" selection-start-line="299" selection-start-column="34" selection-end-line="299" selection-end-column="34" />
           <folding>
             <element signature="e#1710#1728#0" expanded="true" />
           </folding>
