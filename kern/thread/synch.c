@@ -308,6 +308,6 @@ cv_broadcast(struct cv *cv, struct lock *lock)
 	// Write this
 	// (void)cv;    // suppress warning until code gets written
 	//(void)lock;  // suppress warning until code gets written
-	wchan_wakeall();
+	wchan_wakeall(cv->cv_wchan);
 
 }
