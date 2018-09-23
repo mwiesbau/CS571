@@ -269,7 +269,11 @@ cmd_dth(int nargs, char **args) {
 	(void)args;
 
 	// ONLY ENABLE DB_THREADS IF NOT YET SET
-	dbflags = DB_THREADS | dbflags;
+	if (nargs > 1) {
+		dbflags = args[1] | dbflags;
+	}
+
+
 
 	return 0;
 }
