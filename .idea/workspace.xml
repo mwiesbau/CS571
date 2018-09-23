@@ -56,7 +56,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="1813" />
+          <entry key="c" value="1914" />
           <entry key="h" value="271" />
           <entry key="kern" value="22" />
           <entry key="txt" value="103" />
@@ -64,7 +64,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="2084" />
+          <entry key="ObjectiveC" value="2185" />
           <entry key="PLAIN_TEXT" value="125" />
         </counts>
       </usages-collector>
@@ -73,7 +73,7 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.44800523">
       <split-first>
-        <splitter split-orientation="vertical" split-proportion="0.4270724">
+        <splitter split-orientation="vertical" split-proportion="0.67310345">
           <split-first>
             <leaf>
               <file pinned="false" current-in-tab="true">
@@ -95,7 +95,7 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/kern/include/synch.h">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="109">
+                    <state relative-caret-position="290">
                       <caret line="137" column="33" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
                     </state>
                   </provider>
@@ -110,8 +110,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/kern/thread/synch.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="328">
-                  <caret line="299" column="34" selection-start-line="299" selection-start-column="34" selection-end-line="299" selection-end-column="34" />
+                <state relative-caret-position="811">
+                  <caret line="318" lean-forward="true" selection-start-line="318" selection-end-line="318" />
                   <folding>
                     <element signature="e#1710#1728#0" expanded="true" />
                   </folding>
@@ -122,8 +122,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/kern/thread/thread.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="1041" selection-start-line="1041" selection-end-line="1041" />
+                <state relative-caret-position="5">
+                  <caret line="1123" column="13" selection-start-line="1123" selection-end-line="1123" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
@@ -161,6 +161,7 @@
       <find>wchan_slee</find>
       <find>curt</find>
       <find>curthrer</find>
+      <find>wait</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -192,7 +193,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="2007" />
     <option name="y" value="78" />
     <option name="width" value="1717" />
@@ -303,7 +304,7 @@
       <workItem from="1536780714245" duration="23000" />
       <workItem from="1537037922960" duration="2989000" />
       <workItem from="1537319289971" duration="2692000" />
-      <workItem from="1537576321597" duration="25072000" />
+      <workItem from="1537576321597" duration="26026000" />
     </task>
     <task id="LOCAL-00001" summary="Enabled debug output through menu">
       <created>1535910680697</created>
@@ -358,13 +359,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49286000" />
+    <option name="totallyTimeSpent" value="50240000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2007" y="78" width="1717" height="947" extended-state="0" />
+    <frame x="1920" y="26" width="1920" height="1175" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6422535" visible="true" weight="0.18013166" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6422535" visible="true" weight="0.16061899" />
       <window_info id="Structure" order="1" sideWeight="0.35774648" side_tool="true" weight="0.18409818" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -375,7 +376,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.114774115" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.08978032" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="CMake" order="11" />
@@ -672,24 +673,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kern/thread/thread.c">
+    <entry file="file://$PROJECT_DIR$/kern/include/synch.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="1041" selection-start-line="1041" selection-end-line="1041" />
+        <state relative-caret-position="290">
+          <caret line="137" column="33" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kern/include/synch.h">
+    <entry file="file://$PROJECT_DIR$/kern/thread/thread.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="137" column="33" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
+        <state relative-caret-position="5">
+          <caret line="1123" column="13" selection-start-line="1123" selection-end-line="1123" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kern/thread/synch.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="299" column="34" selection-start-line="299" selection-start-column="34" selection-end-line="299" selection-end-column="34" />
+        <state relative-caret-position="811">
+          <caret line="318" lean-forward="true" selection-start-line="318" selection-end-line="318" />
           <folding>
             <element signature="e#1710#1728#0" expanded="true" />
           </folding>
