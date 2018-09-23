@@ -186,7 +186,7 @@ lock_acquire(struct lock *lock)
         KASSERT(lock != NULL);
         KASSERT(curthread->t_in_interrupt == false);
 
-        spinlock_acquire((&lock->lk_lock);
+        spinlock_acquire(&lock->lk_lock);
         while (lock->lk_flag == 0) {
             wchan_sleep(lock->lk_wchan, &lock->lk_lock);
         }

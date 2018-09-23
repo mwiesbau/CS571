@@ -182,9 +182,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2011" />
-    <option name="y" value="107" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="4043" />
+    <option name="y" value="179" />
     <option name="width" value="1717" />
     <option name="height" value="947" />
   </component>
