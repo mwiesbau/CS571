@@ -299,7 +299,7 @@ cv_signal(struct cv *cv, struct lock *lock)
 	// (void)cv;    // suppress warning until code gets written
 	//(void)lock;  // suppress warning until code gets written
 
-	wchan_wakeone(cv->cv_wchan, lock);
+	wchan_wakeone(cv->cv_wchan, &lock->lk_lock);
 }
 
 void
@@ -308,6 +308,6 @@ cv_broadcast(struct cv *cv, struct lock *lock)
 	// Write this
 	// (void)cv;    // suppress warning until code gets written
 	//(void)lock;  // suppress warning until code gets written
-	wchan_wakeall(cv->cv_wchan, lock);
+	wchan_wakeall(cv->cv_wchan, &lock->lk_lock);
 
 }
