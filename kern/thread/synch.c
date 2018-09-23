@@ -193,7 +193,7 @@ lock_acquire(struct lock *lock)
 
         KASSERT(lock->lk_flag > 0);
         lock->lk_flag = 0;
-        lock->t = &curthread;   // ASSIGN CURRENT THREAD TO LOCK
+        lock->t = curthread;   // ASSIGN CURRENT THREAD TO LOCK
 
         spinlock_release(&lock->lk_lock);
         //(void)lock;  // suppress warning until code gets written
@@ -225,7 +225,7 @@ lock_do_i_hold(struct lock *lock)
         // (void)lock;  // suppress warning until code gets written
         //return true; // dummy until code gets written
 
-        if (&curthread == lock->t) {
+        if (curthread == lock->t) {
             return true;
         }
 
