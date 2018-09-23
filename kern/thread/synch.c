@@ -159,7 +159,7 @@ lock_create(const char *name)
         if (lock->lk_wchan == NULL) {
             kfree(lock->lk_name);
             kfree(lock);
-            return NULL
+            return NULL;
         }
 
 
