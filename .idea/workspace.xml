@@ -56,7 +56,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="1914" />
+          <entry key="c" value="1919" />
           <entry key="h" value="271" />
           <entry key="kern" value="22" />
           <entry key="txt" value="103" />
@@ -64,7 +64,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="2185" />
+          <entry key="ObjectiveC" value="2190" />
           <entry key="PLAIN_TEXT" value="125" />
         </counts>
       </usages-collector>
@@ -110,8 +110,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/kern/thread/synch.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="811">
-                  <caret line="318" lean-forward="true" selection-start-line="318" selection-end-line="318" />
+                <state relative-caret-position="283">
+                  <caret line="301" selection-start-line="301" selection-end-line="301" />
                   <folding>
                     <element signature="e#1710#1728#0" expanded="true" />
                   </folding>
@@ -193,9 +193,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
-    <option name="y" value="103" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="2019" />
+    <option name="y" value="97" />
     <option name="width" value="1717" />
     <option name="height" value="947" />
   </component>
@@ -304,7 +304,7 @@
       <workItem from="1536780714245" duration="23000" />
       <workItem from="1537037922960" duration="2989000" />
       <workItem from="1537319289971" duration="2692000" />
-      <workItem from="1537576321597" duration="26026000" />
+      <workItem from="1537576321597" duration="26297000" />
     </task>
     <task id="LOCAL-00001" summary="Enabled debug output through menu">
       <created>1535910680697</created>
@@ -359,13 +359,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50240000" />
+    <option name="totallyTimeSpent" value="50511000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="26" width="1920" height="1175" extended-state="6" />
-    <editor active="true" />
+    <frame x="3823" y="110" width="1717" height="947" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6422535" visible="true" weight="0.16061899" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6422535" visible="true" weight="0.18013166" />
       <window_info id="Structure" order="1" sideWeight="0.35774648" side_tool="true" weight="0.18409818" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -376,7 +375,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.08978032" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.114774115" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="CMake" order="11" />
@@ -689,8 +688,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kern/thread/synch.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="811">
-          <caret line="318" lean-forward="true" selection-start-line="318" selection-end-line="318" />
+        <state relative-caret-position="283">
+          <caret line="301" selection-start-line="301" selection-end-line="301" />
           <folding>
             <element signature="e#1710#1728#0" expanded="true" />
           </folding>
