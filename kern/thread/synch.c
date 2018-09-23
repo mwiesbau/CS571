@@ -155,8 +155,16 @@ lock_create(const char *name)
         }
 
         // add stuff here as needed
-        DEBUG(DB_THREADS, "CREATING LOCK");
+        lock->lk_wchan = wchan_create(lock->lk_name);
+        if (lock->lk_wchan == NULL) {
+            kfree(lock->lk_name);
+            kfree(lock);
+            return NULL
+        }
 
+
+        spinlock_init(&lock->lk_lock);
+        lock->lk_flag = 1;
         return lock;
 }
 
@@ -175,16 +183,38 @@ void
 lock_acquire(struct lock *lock)
 {
         // Write this
+        KASSERT(lock != NULL);
+        KASSERT(curthread->t_in_interrupt == false);
 
-        (void)lock;  // suppress warning until code gets written
+        spinlock_acquire((&lock->lk_lock);
+        while (lock->lk_flag == 0) {
+            wchan_sleep(lock->lk_wchan, &lock->lk_lock);
+        }
+
+        KASSERT(lock->lk_flag > 0);
+        lock->lk_flag = 0;
+        lock->t = &curthread;   // ASSIGN CURRENT THREAD TO LOCK
+
+        spinlock_release(&lock->lk_lock);
+        //(void)lock;  // suppress warning until code gets written
 }
 
 void
 lock_release(struct lock *lock)
 {
         // Write this
+        KASSERT(lock != NULL);
 
-        (void)lock;  // suppress warning until code gets written
+        // ONLY ALLOW HOLDER OF LOCK TO RELEASE IT
+        if (lock_do_i_hold(lock) == true) {
+            spinlock_acquire(&lock->lk_lock);
+            lock->lk_flag = 1;
+            KASSERT(lock->lk_flag > 0);
+            wchan_wakeone(lock->lk_wchan, &lock->lk_lock);
+            spinlock_release(&lock->lk_lock);
+        }
+
+        // (void)lock;  // suppress warning until code gets written
 }
 
 bool
@@ -192,9 +222,15 @@ lock_do_i_hold(struct lock *lock)
 {
         // Write this
 
-        (void)lock;  // suppress warning until code gets written
+        // (void)lock;  // suppress warning until code gets written
+        //return true; // dummy until code gets written
 
-        return true; // dummy until code gets written
+        if (&curthread == lock->t) {
+            return true;
+        }
+
+        return false;
+
 }
 
 ////////////////////////////////////////////////////////////
