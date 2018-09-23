@@ -155,6 +155,7 @@ lock_create(const char *name)
         }
 
         // add stuff here as needed
+        DEBUG(DB_THREADS, "CREATING LOCK");
 
         return lock;
 }
