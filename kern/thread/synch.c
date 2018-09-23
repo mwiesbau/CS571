@@ -262,7 +262,7 @@ cv_create(const char *name)
                 return NULL;
         }
 
-        //spinlock_init(&cv->cv_lock);
+
         return cv;
 }
 
@@ -287,7 +287,6 @@ cv_wait(struct cv *cv, struct lock *lock)
         KASSERT(lock != NULL);
 
         lock_release(lock);
-        wchan_lock(cv->cv_wchan);
         wchan_sleep(cv->cv_wchan);
         lock_acquire(lock);
 }
