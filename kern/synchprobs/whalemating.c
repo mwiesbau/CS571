@@ -34,8 +34,17 @@
 #include <lib.h>
 #include <thread.h>
 #include <test.h>
+#include <synch.h>
 
 #define NMATING 10
+
+// CUSTOM VARIABLES
+struct semaphore *sem_male;
+struct semaphore *sem_female;
+struct lock *hold;
+volatile unsigned int male_counter;
+volatile unsigned int female_counter;
+struct cv *whaleGroup;
 
 static
 void
@@ -44,7 +53,19 @@ male(void *p, unsigned long which)
 	(void)p;
 	kprintf("male whale #%ld starting\n", which);
 
-	// Implement this function
+	lock_acquire(hold);	  // CRITICAL SECTION START
+	V(sem_male);          // INCREMENTING SEMAPHORE
+	male_counter += 1;
+
+	// USE CV TO COORDINATE WHALE GROUPING
+	if (female_counter > 0) {
+		cv_signal(whaleGroup, hold);
+	} else {
+		cv_wait(whaleGroup, hold);
+	}
+
+	lock_release(hold);  // CRITICAL SECTION END
+
 }
 
 static
@@ -54,7 +75,19 @@ female(void *p, unsigned long which)
 	(void)p;
 	kprintf("female whale #%ld starting\n", which);
 
-	// Implement this function
+	lock_acquire(hold); // CRITICAL SECTION START
+	V(sem_female);
+	female_counter += 1;
+
+	// USE CV TO COORDINATE WHALE GROUPING
+	if (male_counter > 0) {
+		cv_signal(whaleGroup, hold);
+	} else {
+		cv_wait(whaleGroup, hold);
+	}
+
+	lock_release(hold); // CRITICAL SECTION END
+
 }
 
 static
@@ -64,6 +97,17 @@ matchmaker(void *p, unsigned long which)
 	(void)p;
 	kprintf("matchmaker whale #%ld starting\n", which);
 
+	lock_acquire(hold);
+	P(sem_male);
+	male_counter -= 1;
+	lock_release(hold);
+
+	lock_acquire(hold);
+	P(sem_female);
+	female_counter -= 1;
+	lock_release(hold);
+
+
 	// Implement this function
 }
 
@@ -72,6 +116,18 @@ matchmaker(void *p, unsigned long which)
 int
 whalemating(int nargs, char **args)
 {
+	// INITIALIZING SEMAPHORES
+	sem_male = sem_create("Male Whales", 0);
+	sem_female = sem_create("Female Whales", 0);
+
+	// INITIALIZE COUNTERS
+	male_counter = 0;
+	female_counter = 0;
+
+	// INTIALIZE LOCK AND CV
+	hold = lock_create("MATING LOCK");
+	whaleGroup = cv_create("MATING CV");
+
 
 	int i, j, err=0;
 

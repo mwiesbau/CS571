@@ -39,7 +39,7 @@
           <entry key="ASST4b" value="1" />
           <entry key="S" value="1" />
           <entry key="arch" value="2" />
-          <entry key="c" value="31" />
+          <entry key="c" value="32" />
           <entry key="config" value="1" />
           <entry key="h" value="31" />
           <entry key="keep_me" value="2" />
@@ -50,13 +50,13 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Assembly file" value="1" />
-          <entry key="ObjectiveC" value="62" />
+          <entry key="ObjectiveC" value="63" />
           <entry key="PLAIN_TEXT" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="1919" />
+          <entry key="c" value="2966" />
           <entry key="h" value="271" />
           <entry key="kern" value="22" />
           <entry key="txt" value="103" />
@@ -64,14 +64,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="2190" />
+          <entry key="ObjectiveC" value="3237" />
           <entry key="PLAIN_TEXT" value="125" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.44800523">
+    <splitter split-orientation="horizontal" split-proportion="0.17482518">
       <split-first>
         <splitter split-orientation="vertical" split-proportion="0.67310345">
           <split-first>
@@ -107,13 +107,25 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/kern/thread/synch.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="283">
-                  <caret line="301" selection-start-line="301" selection-end-line="301" />
+                <state relative-caret-position="448">
+                  <caret line="294" column="27" selection-start-line="294" selection-start-column="27" selection-end-line="294" selection-end-column="27" />
                   <folding>
                     <element signature="e#1710#1728#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/kern/synchprobs/whalemating.c">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="631">
+                  <caret line="88" column="47" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
+                  <folding>
+                    <element signature="e#1633#1651#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -122,7 +134,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/kern/thread/thread.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="5">
+                <state relative-caret-position="-914">
                   <caret line="1123" column="13" selection-start-line="1123" selection-end-line="1123" selection-end-column="13" />
                 </state>
               </provider>
@@ -160,8 +172,8 @@
       <find>cmd_dt</find>
       <find>wchan_slee</find>
       <find>curt</find>
-      <find>curthrer</find>
       <find>wait</find>
+      <find>curthrer</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -183,6 +195,7 @@
         <option value="$PROJECT_DIR$/kern/main/menu.c" />
         <option value="$PROJECT_DIR$/kern/include/synch.h" />
         <option value="$PROJECT_DIR$/kern/thread/synch.c" />
+        <option value="$PROJECT_DIR$/kern/synchprobs/whalemating.c" />
       </list>
     </option>
   </component>
@@ -194,8 +207,8 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2019" />
-    <option name="y" value="97" />
+    <option name="x" value="1869" />
+    <option name="y" value="69" />
     <option name="width" value="1717" />
     <option name="height" value="947" />
   </component>
@@ -220,13 +233,7 @@
               <item name="os161" type="b2602c69:ProjectViewProjectNode" />
               <item name="os161" type="462c0819:PsiDirectoryNode" />
               <item name="kern" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="os161" type="b2602c69:ProjectViewProjectNode" />
-              <item name="os161" type="462c0819:PsiDirectoryNode" />
-              <item name="kern" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="synchprobs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="os161" type="b2602c69:ProjectViewProjectNode" />
@@ -304,7 +311,7 @@
       <workItem from="1536780714245" duration="23000" />
       <workItem from="1537037922960" duration="2989000" />
       <workItem from="1537319289971" duration="2692000" />
-      <workItem from="1537576321597" duration="26297000" />
+      <workItem from="1537576321597" duration="29499000" />
     </task>
     <task id="LOCAL-00001" summary="Enabled debug output through menu">
       <created>1535910680697</created>
@@ -359,12 +366,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50511000" />
+    <option name="totallyTimeSpent" value="53713000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3823" y="110" width="1717" height="947" extended-state="0" />
+    <frame x="1920" y="26" width="1920" height="1175" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6422535" visible="true" weight="0.18013166" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6422535" visible="true" weight="0.09071505" />
       <window_info id="Structure" order="1" sideWeight="0.35774648" side_tool="true" weight="0.18409818" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -375,7 +383,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.114774115" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.08978032" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="CMake" order="11" />
@@ -399,13 +407,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added custom print statement" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/kern/lib/kprintf.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="95" column="4" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kern/include/hello.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -681,17 +682,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kern/thread/thread.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
+        <state relative-caret-position="-914">
           <caret line="1123" column="13" selection-start-line="1123" selection-end-line="1123" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kern/thread/synch.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="301" selection-start-line="301" selection-end-line="301" />
+        <state relative-caret-position="448">
+          <caret line="294" column="27" selection-start-line="294" selection-start-column="27" selection-end-line="294" selection-end-column="27" />
           <folding>
             <element signature="e#1710#1728#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kern/synchprobs/whalemating.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="631">
+          <caret line="88" column="47" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
+          <folding>
+            <element signature="e#1633#1651#0" expanded="true" />
           </folding>
         </state>
       </provider>
