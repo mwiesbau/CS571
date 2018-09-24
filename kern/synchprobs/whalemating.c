@@ -55,10 +55,11 @@ male(void *p, unsigned long which)
 	lock_acquire(hold);	  // CRITICAL SECTION START
 	V(sem_male);          // INCREMENTING SEMAPHORE
 	male_counter += 1;
-	kprintf("male whale #%ld starting\n", which);
+
 	// USE CV TO COORDINATE WHALE GROUPING
 	if (female_counter > 0) {
 		cv_signal(whaleGroup, hold);
+		kprintf("male whale #%ld starting\n", which);
 	} else {
 		cv_wait(whaleGroup, hold);
 	}
@@ -77,10 +78,11 @@ female(void *p, unsigned long which)
 	lock_acquire(hold); // CRITICAL SECTION START
 	V(sem_female);
 	female_counter += 1;
-	kprintf("female whale #%ld starting\n", which);
+
 	// USE CV TO COORDINATE WHALE GROUPING
 	if (male_counter > 0) {
 		cv_signal(whaleGroup, hold);
+		kprintf("female whale #%ld starting\n", which);
 	} else {
 		cv_wait(whaleGroup, hold);
 	}
@@ -99,14 +101,14 @@ matchmaker(void *p, unsigned long which)
 	lock_acquire(hold);
 	P(sem_male);
 	male_counter -= 1;
-	kprintf("Matching MALE");
+	// kprintf("Matching MALE\n");
 	lock_release(hold);
 
 
 	lock_acquire(hold);
 	P(sem_female);
 	female_counter -= 1;
-	kprintf("Matching FEMALE");
+	// kprintf("Matching FEMALE\n");
 	lock_release(hold);
 
 
