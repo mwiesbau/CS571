@@ -95,7 +95,7 @@ female(void *p, unsigned long which)
     if (mating == 0 ) {
         cv_broadcast(matchmakers, hold);
     } else {
-        kprintf("male #%ld mating\n", which);
+        kprintf("female #%ld mating\n", which);
         female_counter -= 1;
     }
 
@@ -117,7 +117,7 @@ matchmaker(void *p, unsigned long which)
 	    cv_wait(matchmakers, hold);
 	}
 
-	kprintf("Matchmaker #%ld coordinating mating", which);
+	kprintf("Matchmaker #%ld coordinating mating\n", which);
 	mating = 1;
 	matchmaker_counter -= 1;
 	cv_signal(males, hold);
