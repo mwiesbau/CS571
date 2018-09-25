@@ -60,18 +60,20 @@ male(void *p, unsigned long which)
 	lock_acquire(hold);
 	male_counter += 1;
 
-	// IF EITHER A FEMALE OR MATCHMAKER ARE UNAVAILABLE WAIT IN MALES QUEUE
-	while (mating == 0) {
-	    cv_wait(males, hold);
-	} // END WHILE LOOP
+	if (female_counter > 0 && matchmaker_counter > 0) {
+	    male_counter -= 1;
+	    cv_signal(males, hold);
 
-	// FEMALE AND MATCHMAKER ARE AVAILABLE BROADCAST MATCHMAKER
-	kprintf("male #%ld mating\n", which);
-    male_counter -= 1;
-    cv_signal(matchmakers, hold);
-    kprintf("male #%ld ended\n", which);
+	    matchmaker_counter -= 1;
+	    cv_signal(matchmakers, hold);
+
+	    male_counter -= 1;
+    } else {
+	    cv_wait(males, hold);
+	}
+
 	lock_release(hold);
-}
+    kprintf("male whale #%ld ending\n", which);
 
 static
 void
@@ -82,17 +84,24 @@ female(void *p, unsigned long which)
 
 	lock_acquire(hold);
 	female_counter += 1;
-    // IF EITHER A MALE OR MATCHMAKER ARE UNAVAILABLE WAIT IN MALES QUEUE
-	while (mating == 0) {
-	    cv_wait(females, hold);
-	}
 
-    // MALE AND MATCHMAKER ARE AVAILABLE BROADCAST MATCHMAKER
-    kprintf("female #%ld mating\n", which);
-    female_counter -= 1;
-    cv_signal(males, hold);
+	if (male_counter > 0 && matchmaker_counter > 0) {
+
+	    male_counter -= 1;
+        cv_signal(males, hold);
+
+        matchmaker_counter = 1;
+        cv_signal(matchmakers, hold);
+
+        female_counter -= 1;
+
+	} else {
+        cv_wait(females, hold);
+    }
+
+
     lock_release(hold);
-    kprintf("female #%ld ended\n", which);
+    kprintf("female whale #%ld ending\n", which);
 
 
 }
@@ -106,18 +115,25 @@ matchmaker(void *p, unsigned long which)
 
 	lock_acquire(hold);
 	matchmaker_counter += 1;
-	mating = 0;
-	while (male_counter == 0 || female_counter == 0) {
-	    cv_wait(matchmakers, hold);
-	}
 
-	kprintf("Matchmaker #%ld coordinating mating\n", which);
-	mating = 1;
+	if (female_counter > 0 && male_counter > 0)
+    //kprintf("matchmaker #%ld coordinating mating\n", which);
 
-	cv_signal(females, hold);
-    matchmaker_counter -= 1;
+	    female_counter -= 1;
+        cv_signal(females, hold);
+
+        male_counter -= 1;
+        cv_signal(males, hold);
+
+        matchmaker_counter -= 1;
+
+	} else {
+        cv_wait(matchmakers, hold);
+    }
+
+
 	lock_release(hold);
-    kprintf("Matchmaker #%ld ending\n", which);
+    kprintf("matchmaker #%ld ending\n", which);
 	// Implement this function
 }
 
