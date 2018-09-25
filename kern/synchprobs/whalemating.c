@@ -117,7 +117,7 @@ matchmaker(void *p, unsigned long which)
 	lock_acquire(hold);
 	matchmaker_counter += 1;
 
-	if (female_counter > 0 && male_counter > 0)
+	if (female_counter > 0 && male_counter > 0) {
     //kprintf("matchmaker #%ld coordinating mating\n", which);
 
 	    female_counter -= 1;
