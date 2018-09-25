@@ -67,7 +67,7 @@ male(void *p, unsigned long which)
 
 	// FEMALE AND MATCHMAKER ARE AVAILABLE BROADCAST MATCHMAKER
 	if (mating == 0) {
-	    cv_broadcast(matchmakers);
+	    cv_broadcast(matchmakers, hold);
 	} else {
         kprintf("male #%ld mating\n", which);
         male_counter -= 1;
@@ -93,7 +93,7 @@ female(void *p, unsigned long which)
 
     // MALE AND MATCHMAKER ARE AVAILABLE BROADCAST MATCHMAKER
     if (mating == 0 ) {
-        cv_broadcast(matchmakers);
+        cv_broadcast(matchmakers, hold);
     } else {
         kprintf("male #%ld mating\n", which);
         female_counter -= 1;
