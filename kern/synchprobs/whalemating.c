@@ -52,28 +52,29 @@ volatile unsigned int mating;
 
 static
 void
-male(void *p, unsigned long which)
-{
-	(void)p;
-	kprintf("male whale #%ld starting\n", which);
+male(void *p, unsigned long which) {
+    (void) p;
+    kprintf("male whale #%ld starting\n", which);
 
-	lock_acquire(hold);
-	male_counter += 1;
+    lock_acquire(hold);
+    male_counter += 1;
 
-	if (female_counter > 0 && matchmaker_counter > 0) {
-	    male_counter -= 1;
-	    cv_signal(males, hold);
+    if (female_counter > 0 && matchmaker_counter > 0) {
+        male_counter -= 1;
+        cv_signal(males, hold);
 
-	    matchmaker_counter -= 1;
-	    cv_signal(matchmakers, hold);
+        matchmaker_counter -= 1;
+        cv_signal(matchmakers, hold);
 
-	    male_counter -= 1;
+        male_counter -= 1;
     } else {
-	    cv_wait(males, hold);
-	}
+        cv_wait(males, hold);
+    }
 
-	lock_release(hold);
+    lock_release(hold);
     kprintf("male whale #%ld ending\n", which);
+}
+
 
 static
 void
