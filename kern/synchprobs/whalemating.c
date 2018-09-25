@@ -93,7 +93,7 @@ female(void *p, unsigned long which)
         male_counter -= 1;
         cv_signal(males, hold);
 
-        matchmaker_counter = 1;
+        matchmaker_counter -= 1;
         cv_signal(matchmakers, hold);
 
         female_counter -= 1;
