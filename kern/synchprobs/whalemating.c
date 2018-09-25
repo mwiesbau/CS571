@@ -117,7 +117,6 @@ matchmaker(void *p, unsigned long which)
 	matchmaker_counter += 1;
 
 	if (female_counter > 0 && male_counter > 0) {
-    //kprintf("matchmaker #%ld coordinating mating\n", which);
 
 	    female_counter -= 1;
         cv_signal(females, hold);
@@ -142,15 +141,11 @@ matchmaker(void *p, unsigned long which)
 int
 whalemating(int nargs, char **args)
 {
-	// INITIALIZING SEMAPHORES
-	sem_male = sem_create("Male Whales", 0);
-	sem_female = sem_create("Female Whales", 0);
 
 	// INITIALIZE COUNTERS
 	male_counter = 0;
 	female_counter = 0;
 	matchmaker_counter = 0;
-	mating = 0;
 
 	// INTIALIZE LOCK AND CV
 	hold = lock_create("MATING LOCK");
