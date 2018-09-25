@@ -58,7 +58,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="4756" />
+          <entry key="c" value="4780" />
           <entry key="h" value="271" />
           <entry key="kern" value="22" />
           <entry key="txt" value="103" />
@@ -66,7 +66,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="5027" />
+          <entry key="ObjectiveC" value="5051" />
           <entry key="PLAIN_TEXT" value="125" />
         </counts>
       </usages-collector>
@@ -124,8 +124,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/kern/synchprobs/whalemating.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="511">
-                  <caret line="128" column="53" selection-start-line="128" selection-start-column="53" selection-end-line="128" selection-end-column="53" />
+                <state relative-caret-position="301">
+                  <caret line="44" selection-start-line="44" selection-end-line="44" />
                   <folding>
                     <element signature="e#1633#1651#0" expanded="true" />
                   </folding>
@@ -315,7 +315,7 @@
       <workItem from="1537319289971" duration="2692000" />
       <workItem from="1537576321597" duration="30956000" />
       <workItem from="1537815124509" duration="599000" />
-      <workItem from="1537875761484" duration="6203000" />
+      <workItem from="1537875761484" duration="6486000" />
     </task>
     <task id="LOCAL-00001" summary="Enabled debug output through menu">
       <created>1535910680697</created>
@@ -370,7 +370,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61972000" />
+    <option name="totallyTimeSpent" value="62255000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="3840" y="-2" width="1920" height="1082" extended-state="6" />
@@ -703,8 +703,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kern/synchprobs/whalemating.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="128" column="53" selection-start-line="128" selection-start-column="53" selection-end-line="128" selection-end-column="53" />
+        <state relative-caret-position="301">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="e#1633#1651#0" expanded="true" />
           </folding>

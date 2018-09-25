@@ -40,9 +40,9 @@
 
 // CUSTOM VARIABLES
 struct lock *hold;
-volatile unsigned int male_counter;
-volatile unsigned int female_counter;
-volatile unsigned int matchmaker_counter;
+unsigned int male_counter;
+unsigned int female_counter;
+unsigned int matchmaker_counter;
 struct cv *males;
 struct cv *females;
 struct cv *matchmakers;
@@ -58,14 +58,16 @@ male(void *p, unsigned long which) {
     male_counter += 1;
 
     if (female_counter > 0 && matchmaker_counter > 0) {
-        male_counter -= 1;
-        cv_signal(males, hold);
+        kprintf("male whale #%ld mated\n", which);
+
+        female_counter -= 1;
+        cv_signal(females, hold);
 
         matchmaker_counter -= 1;
         cv_signal(matchmakers, hold);
 
         male_counter -= 1;
-        kprintf("male whale #%ld mated\n", which);
+
     } else {
         cv_wait(males, hold);
     }
@@ -86,15 +88,16 @@ female(void *p, unsigned long which)
 	female_counter += 1;
 
 	if (male_counter > 0 && matchmaker_counter > 0) {
+        kprintf("female whale #%ld mated\n", which);
 
-	    male_counter -= 1;
+        male_counter -= 1;
         cv_signal(males, hold);
 
         matchmaker_counter = 1;
         cv_signal(matchmakers, hold);
 
         female_counter -= 1;
-        kprintf("female whale #%ld mated\n", which);
+
 	} else {
         cv_wait(females, hold);
     }
@@ -117,7 +120,7 @@ matchmaker(void *p, unsigned long which)
 	matchmaker_counter += 1;
 
 	if (female_counter > 0 && male_counter > 0) {
-
+        kprintf("matchmaker whale #%ld matched whales\n", which);
 	    female_counter -= 1;
         cv_signal(females, hold);
 
@@ -125,7 +128,7 @@ matchmaker(void *p, unsigned long which)
         cv_signal(males, hold);
 
         matchmaker_counter -= 1;
-        kprintf("matchmaker whale #%ld matched whales\n", which);
+
 	} else {
         cv_wait(matchmakers, hold);
     }
