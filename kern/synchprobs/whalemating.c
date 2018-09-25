@@ -146,7 +146,7 @@ whalemating(int nargs, char **args)
 	hold = lock_create("MATING LOCK");
 	males = cv_create("MALES CV");
 	females = cv_create("FEMALES CV");
-	matchmakers = cv_create("MATCHMAKERS CV")
+	matchmakers = cv_create("MATCHMAKERS CV");
 
 
 	int i, j, err=0;
