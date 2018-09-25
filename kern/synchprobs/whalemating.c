@@ -61,18 +61,14 @@ male(void *p, unsigned long which)
 	male_counter += 1;
 
 	// IF EITHER A FEMALE OR MATCHMAKER ARE UNAVAILABLE WAIT IN MALES QUEUE
-	while (female_counter == 0 || matchmaker_counter == 0) {
+	while (mating == 0) {
 	    cv_wait(males, hold);
 	} // END WHILE LOOP
 
 	// FEMALE AND MATCHMAKER ARE AVAILABLE BROADCAST MATCHMAKER
-	if (mating == 0) {
-	    cv_broadcast(matchmakers, hold);
-	} else {
-        kprintf("male #%ld mating\n", which);
-        male_counter -= 1;
-	}
-
+	kprintf("male #%ld mating\n", which);
+    male_counter -= 1;
+    cv_signal(matchmakers, hold);
     kprintf("male #%ld ended\n", which);
 	lock_release(hold);
 }
@@ -87,20 +83,18 @@ female(void *p, unsigned long which)
 	lock_acquire(hold);
 	female_counter += 1;
     // IF EITHER A MALE OR MATCHMAKER ARE UNAVAILABLE WAIT IN MALES QUEUE
-	while (male_counter == 0 || matchmaker_counter == 0) {
+	while (mating == 0) {
 	    cv_wait(females, hold);
 	}
 
     // MALE AND MATCHMAKER ARE AVAILABLE BROADCAST MATCHMAKER
-    if (mating == 0 ) {
-        cv_broadcast(matchmakers, hold);
-    } else {
-        kprintf("female #%ld mating\n", which);
-        female_counter -= 1;
-    }
-
+    kprintf("female #%ld mating\n", which);
+    female_counter -= 1;
+    cv_signal(males, hold);
+    lock_release(hold);
     kprintf("female #%ld ended\n", which);
-	lock_release(hold);
+
+
 }
 
 static
@@ -119,11 +113,11 @@ matchmaker(void *p, unsigned long which)
 
 	kprintf("Matchmaker #%ld coordinating mating\n", which);
 	mating = 1;
-	matchmaker_counter -= 1;
-	cv_signal(males, hold);
-	cv_signal(females, hold);
-	lock_release(hold);
 
+	cv_signal(females, hold);
+    matchmaker_counter -= 1;
+	lock_release(hold);
+    kprintf("Matchmaker #%ld ending\n", which);
 	// Implement this function
 }
 
