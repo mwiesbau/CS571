@@ -11,7 +11,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18480676-7190-4b67-8e8d-01a7f8bdfb1c" name="Default Changelist" comment="Added custom print statement" />
+    <list default="true" id="18480676-7190-4b67-8e8d-01a7f8bdfb1c" name="Default Changelist" comment="Added custom print statement">
+      <change beforePath="$PROJECT_DIR$/kern/synchprobs/whalemating.c" beforeDir="false" afterPath="$PROJECT_DIR$/kern/synchprobs/whalemating.c" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +58,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="4720" />
+          <entry key="c" value="4756" />
           <entry key="h" value="271" />
           <entry key="kern" value="22" />
           <entry key="txt" value="103" />
@@ -64,7 +66,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="4991" />
+          <entry key="ObjectiveC" value="5027" />
           <entry key="PLAIN_TEXT" value="125" />
         </counts>
       </usages-collector>
@@ -122,8 +124,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/kern/synchprobs/whalemating.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="466">
-                  <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+                <state relative-caret-position="511">
+                  <caret line="128" column="53" selection-start-line="128" selection-start-column="53" selection-end-line="128" selection-end-column="53" />
                   <folding>
                     <element signature="e#1633#1651#0" expanded="true" />
                   </folding>
@@ -313,7 +315,7 @@
       <workItem from="1537319289971" duration="2692000" />
       <workItem from="1537576321597" duration="30956000" />
       <workItem from="1537815124509" duration="599000" />
-      <workItem from="1537875761484" duration="5834000" />
+      <workItem from="1537875761484" duration="6203000" />
     </task>
     <task id="LOCAL-00001" summary="Enabled debug output through menu">
       <created>1535910680697</created>
@@ -368,10 +370,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61603000" />
+    <option name="totallyTimeSpent" value="61972000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="3840" y="-2" width="1920" height="1082" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6422535" visible="true" weight="0.17022412" />
       <window_info id="Structure" order="1" sideWeight="0.35774648" side_tool="true" weight="0.18409818" />
@@ -700,8 +703,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kern/synchprobs/whalemating.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+        <state relative-caret-position="511">
+          <caret line="128" column="53" selection-start-line="128" selection-start-column="53" selection-end-line="128" selection-end-column="53" />
           <folding>
             <element signature="e#1633#1651#0" expanded="true" />
           </folding>

@@ -39,8 +39,6 @@
 #define NMATING 10
 
 // CUSTOM VARIABLES
-struct semaphore *sem_male;
-struct semaphore *sem_female;
 struct lock *hold;
 volatile unsigned int male_counter;
 volatile unsigned int female_counter;
@@ -48,7 +46,7 @@ volatile unsigned int matchmaker_counter;
 struct cv *males;
 struct cv *females;
 struct cv *matchmakers;
-volatile unsigned int mating;
+
 
 static
 void
@@ -67,6 +65,7 @@ male(void *p, unsigned long which) {
         cv_signal(matchmakers, hold);
 
         male_counter -= 1;
+        kprintf("male whale #%ld mated\n", which);
     } else {
         cv_wait(males, hold);
     }
@@ -95,7 +94,7 @@ female(void *p, unsigned long which)
         cv_signal(matchmakers, hold);
 
         female_counter -= 1;
-
+        kprintf("female whale #%ld mated\n", which);
 	} else {
         cv_wait(females, hold);
     }
@@ -127,7 +126,7 @@ matchmaker(void *p, unsigned long which)
         cv_signal(males, hold);
 
         matchmaker_counter -= 1;
-
+        kprintf("matchmaker whale #%ld matched whales\n", which);
 	} else {
         cv_wait(matchmakers, hold);
     }
