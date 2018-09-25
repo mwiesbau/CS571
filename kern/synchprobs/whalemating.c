@@ -44,7 +44,11 @@ struct semaphore *sem_female;
 struct lock *hold;
 volatile unsigned int male_counter;
 volatile unsigned int female_counter;
-struct cv *whaleGroup;
+volatile unsigned int matchmaker_counter;
+struct cv *males;
+struct cv *females;
+struct cv *matchmakers;
+volatile unsigned int mating;
 
 static
 void
@@ -53,20 +57,24 @@ male(void *p, unsigned long which)
 	(void)p;
 	kprintf("male whale #%ld starting\n", which);
 
-	lock_acquire(hold);	  // CRITICAL SECTION START
-	V(sem_male);          // INCREMENTING SEMAPHORE
+	lock_acquire(hold);
 	male_counter += 1;
 
-	// USE CV TO COORDINATE WHALE GROUPING
-	if (female_counter > 0) {
-		cv_signal(whaleGroup, hold);
-		kprintf("signal male");
+	// IF EITHER A FEMALE OR MATCHMAKER ARE UNAVAILABLE WAIT IN MALES QUEUE
+	while (female_counter == 0 || matchmaker_counter == 0) {
+	    cv_wait(males, hold);
+	} // END WHILE LOOP
+
+	// FEMALE AND MATCHMAKER ARE AVAILABLE BROADCAST MATCHMAKER
+	if (mating == 0) {
+	    cv_broadcast(matchmakers);
 	} else {
-		cv_wait(whaleGroup, hold);
+        kprintf("male #%ld mating\n", which);
+        male_counter -= 1;
 	}
 
-	lock_release(hold);  // CRITICAL SECTION END
-	kprintf("male whale #%ld ending\n", which);
+    kprintf("male #%ld ended\n", which);
+	lock_release(hold);
 }
 
 static
@@ -76,20 +84,23 @@ female(void *p, unsigned long which)
 	(void)p;
 	kprintf("female whale #%ld starting\n", which);
 
-	lock_acquire(hold); // CRITICAL SECTION START
-	V(sem_female);
+	lock_acquire(hold);
 	female_counter += 1;
-
-	// USE CV TO COORDINATE WHALE GROUPING
-	if (male_counter > 0) {
-		cv_signal(whaleGroup, hold);
-		kprintf("signal female");
-	} else {
-		cv_wait(whaleGroup, hold);
+    // IF EITHER A MALE OR MATCHMAKER ARE UNAVAILABLE WAIT IN MALES QUEUE
+	while (male_counter == 0 || matchmaker_counter == 0) {
+	    cv_wait(females, hold);
 	}
 
-	lock_release(hold); // CRITICAL SECTION END
-	kprintf("female whale #%ld ending\n", which);
+    // MALE AND MATCHMAKER ARE AVAILABLE BROADCAST MATCHMAKER
+    if (mating == 0 ) {
+        cv_broadcast(matchmakers);
+    } else {
+        kprintf("male #%ld mating\n", which);
+        female_counter -= 1;
+    }
+
+    kprintf("female #%ld ended\n", which);
+	lock_release(hold);
 }
 
 static
@@ -100,18 +111,18 @@ matchmaker(void *p, unsigned long which)
 	kprintf("matchmaker whale #%ld starting\n", which);
 
 	lock_acquire(hold);
-	P(sem_male);
-	male_counter -= 1;
-	kprintf("Matching MALE\n");
-	lock_release(hold);
+	matchmaker_counter += 1;
+	mating = 0;
+	while (male_counter == 0 || female_counter == 0) {
+	    cv_wait(matchmakers, hold);
+	}
 
-
-	lock_acquire(hold);
-	P(sem_female);
-	female_counter -= 1;
-	kprintf("Matching FEMALE\n");
+	kprintf("Matchmaker #%ld coordinating mating", which);
+	mating = 1;
+	matchmaker_counter -= 1;
+	cv_signal(males, hold);
+	cv_signal(females, hold);
 	lock_release(hold);
-	kprintf("matchmaker whale #%ld ending\n", which);
 
 	// Implement this function
 }
@@ -128,10 +139,14 @@ whalemating(int nargs, char **args)
 	// INITIALIZE COUNTERS
 	male_counter = 0;
 	female_counter = 0;
+	matchmaker_counter = 0;
+	mating = 0;
 
 	// INTIALIZE LOCK AND CV
 	hold = lock_create("MATING LOCK");
-	whaleGroup = cv_create("MATING CV");
+	males = cv_create("MALES CV");
+	females = cv_create("FEMALES CV");
+	matchmakers = cv_create("MATCHMAKERS CV")
 
 
 	int i, j, err=0;
